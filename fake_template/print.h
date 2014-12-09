@@ -1,15 +1,10 @@
-#define FM 	"%d"
-#define Elem_type int
-#define printArray2 print_intArrray 
+#ifndef PRINT_H
+#define PRINT_H
+#define printA(x,n) _Generic((x), int *:print_intArray,	\
+				  double *:print_doubleArray)(x,n)
 
-#include "print.ic"
+void print_intArray(int *array, int n);
 
-#undef Elem_type
-#undef FM
-#undef printArray2
+void print_doubleArray(double *array, int n);
 
-#define FM	"%lf"
-#define Elem_type double
-#define printArray2 print_doubleArrray 
-
-#include "print.ic"
+#endif
